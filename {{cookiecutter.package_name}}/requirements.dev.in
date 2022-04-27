@@ -1,0 +1,11 @@
+black
+isort
+mypy
+pip-tools
+pylint-exit
+pylint
+pytest-cov
+pytest
+sphinx
+twine
+wheel
