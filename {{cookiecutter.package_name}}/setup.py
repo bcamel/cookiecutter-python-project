@@ -27,9 +27,9 @@ with open("CHANGELOG.rst", "r", encoding="utf8") as f:
 
 def parse_requirements(filename):
     """Load requirements from a pip requirements file"""
-    with open(filename, "r", encoding="utf8") as fd:
+    with open(filename, "r", encoding="utf8") as file_descriptor:
         lines = []
-        for line in fd:
+        for line in file_descriptor:
             line.strip()
             if line and not line.startswith("#"):
                 lines.append(line)
