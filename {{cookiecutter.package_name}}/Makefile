@@ -8,8 +8,8 @@ ifeq ($(OS),Windows_NT)
 	VENV_CMD = venv/Scripts/python.exe -m pip install pip --upgrade && venv/Scripts/python.exe -m pip install setuptools --upgrade
 	VENV_HLP = @echo "Enter virtual environment using: venv\Scripts\activate.bat"
 else
-	VENV_CMD = @/bin/bash -c "source venv/bin/activate && python -m pip install pip --upgrade && python -m pip install setuptools --upgrade
-	VENV_HLP = @echo "Enter virtual environment using: source venv\bin\activate"
+	VENV_CMD = @/bin/bash -c "source venv/bin/activate && python -m pip install pip --upgrade && python -m pip install setuptools --upgrade"
+	VENV_HLP = @echo "Enter virtual environment using: source venv/bin/activate"
 endif
 
 # Do not remove this block. It is used by the 'help' rule when
@@ -110,8 +110,8 @@ format:
 # help: requirements-txt               - generate requirements[-dev].txt files
 .PHONY: requirements-txt
 requirements-txt:
-	@pip-compile --output-file requirements.txt
-	@pip-compile --output-file requirements.dev.txt requirements.txt requirements.dev.in
+	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.txt
+	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.dev.txt requirements.txt requirements.dev.in
 
 
 # help: serve-docs                     - serve project html documentation
