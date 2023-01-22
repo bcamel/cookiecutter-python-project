@@ -111,7 +111,7 @@ format:
 .PHONY: requirements-txt
 requirements-txt:
 	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.txt
-	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.dev.txt requirements.txt requirements.dev.in
+	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.dev.txt --extra dev --extra setup
 
 
 # help: serve-docs                     - serve project html documentation
