@@ -89,10 +89,10 @@ dist:
 	@python setup.py bdist_wheel
 
 
-# help: dist-test                      - test a whell distribution package
+# help: dist-test                      - test a wheel distribution package
 .PHONY: dist-test
 dist-test: dist
-	@cd dist && ../tests/test-dist.bash ./{{cookiecutter.package_name}}-*-py3-none-any.whl
+	@cd dist && bash ../tests/test-dist.bash ./{{cookiecutter.package_name}}-*-py3-none-any.whl
 
 
 # help: dist-upload                    - upload a wheel distribution package
@@ -110,8 +110,8 @@ format:
 # help: requirements-txt               - generate requirements[-dev].txt files
 .PHONY: requirements-txt
 requirements-txt:
-	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.txt
-	@pip-compile --generate-hashes --quiet --rebuild --output-file requirements.dev.txt --extra dev --extra setup
+	@pip-compile --generate-hashes --resolver=backtracking --quiet --rebuild --output-file requirements.txt
+	@pip-compile --generate-hashes --resolver=backtracking --quiet --rebuild --output-file requirements.dev.txt --extra dev --extra setup
 
 
 # help: serve-docs                     - serve project html documentation
@@ -134,6 +134,12 @@ style: sort-imports format
 # help: test                           - run tests
 .PHONY: test
 test:
+	@pytest --ignore=test/test_e2e.py
+
+
+# help: test-all                       - run tests [incl. end-to-end]
+.PHONY: test-all
+test-all:
 	@pytest
 
 
