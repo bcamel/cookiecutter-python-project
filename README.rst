@@ -2,7 +2,7 @@ Cookiecutter Python Project
 ###########################
 
 This project contains a Cookiecutter template that helps you create new Python
-3.6+ package projects by automatically generating most of the boiler plate
+3.10 package projects by automatically generating most of the boiler plate
 content for you.
 
 Cookiecutter is a command-line utility that creates projects from templates.
