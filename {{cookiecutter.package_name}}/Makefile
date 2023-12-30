@@ -134,7 +134,7 @@ style: sort-imports format
 # help: test                           - run tests
 .PHONY: test
 test:
-	@pytest --ignore=test/test_e2e.py
+	@pytest --ignore=tests/test_e2e.py
 
 
 # help: test-all                       - run tests [incl. end-to-end]
