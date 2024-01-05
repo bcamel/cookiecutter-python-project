@@ -27,20 +27,12 @@ then
   source test_venv/bin/activate
 fi
 
-echo "Upgrading pip"
-if [[ "${OS}" == "Windows_NT" ]]
-then
-  test_venv/Scripts/python.exe -m pip install pip --upgrade
-else
-  python -m pip install pip --upgrade
-fi
-
 echo "Installing $RELEASE_ARCHIVE"
 if [[ "${OS}" == "Windows_NT" ]]
 then
   test_venv/Scripts/python.exe -m pip install $RELEASE_ARCHIVE
 else
-  python -m pip pip install $RELEASE_ARCHIVE
+  python -m pip install $RELEASE_ARCHIVE
 fi
 
 echo "Running tests"

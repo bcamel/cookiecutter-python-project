@@ -110,8 +110,8 @@ format:
 # help: requirements-txt               - generate requirements[-dev].txt files
 .PHONY: requirements-txt
 requirements-txt:
-	@pip-compile --generate-hashes --resolver=backtracking --quiet --rebuild --output-file requirements.txt
-	@pip-compile --generate-hashes --resolver=backtracking --quiet --rebuild --output-file requirements.dev.txt --extra dev --extra setup
+	@pip-compile --generate-hashes --strip-extras --resolver=backtracking --quiet --rebuild --output-file requirements.txt
+	@pip-compile --generate-hashes --strip-extras --resolver=backtracking --quiet --rebuild --output-file requirements.dev.txt --extra dev --extra setup
 
 
 # help: serve-docs                     - serve project html documentation
